@@ -1,1012 +1,2019 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación XV Años - Isabella</title>
-    
+
+    <title>Invitación XV Años - Isabela</title>
+
+   
+
     <!-- Tipografías: Georgia es del sistema, importamos solo las cursivas -->
+
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
 
+
+
     <style>
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+
         body {
-            background-color: #cccccc; 
+
+            background-color: #cccccc;
+
             display: flex;
+
             justify-content: center;
+
             min-height: 100vh;
+
             /* Tipografía base Georgia */
-            font-family: 'Georgia', serif; 
+
+            font-family: 'Georgia', serif;
+
             color: #333;
+
         }
+
+
 
         /* Clase para textos en cursiva (Nombres, frases) */
+
         .texto-cursiva {
+
             font-family: 'Great Vibes', cursive;
+
             font-weight: 400;
+
         }
+
+
 
         .invitacion-container {
+
             width: 100%;
+
             max-width: 450px;
-            background-color: #ffffff; 
+
+            background-color: #ffffff;
+
             position: relative;
+
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            height: 100vh; 
-            overflow-y: auto; 
+
+            min-height: 100vh;
+
+            overflow-y: auto;
+
             overflow-x: hidden;
-            scroll-behavior: smooth;
+
         }
+
+
 
         /* --- ESTILOS BOTÓN DE MÚSICA --- */
+
         .contenedor-boton-musica {
+
             position: sticky;
+
             top: 15px;
+
             width: 100%;
+
             display: flex;
+
             justify-content: flex-end;
+
             padding-right: 15px;
+
             z-index: 2000; /* Encima de todo */
+
             height: 0; /* Para que no empuje el contenido hacia abajo */
+
             overflow: visible;
+
         }
+
+
 
         .boton-musica {
+
             width: 40px; /* Un poco más pequeño para no estorbar */
+
             height: 40px;
+
             border-radius: 50%;
+
             background-color: rgba(255, 255, 255, 0.9);
+
             border: 2px solid #8b3d62;
+
             color: #8b3d62;
+
             font-size: 18px;
+
             cursor: pointer;
+
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             transition: all 0.3s ease;
-            pointer-events: auto; 
+
+            pointer-events: auto;
+
         }
+
+
 
         .boton-musica.reproduciendo {
+
             background-color: #8b3d62;
+
             color: #fff;
+
             border-color: #bfa378;
+
             animation: pulso-musica 2s infinite;
+
         }
+
+
 
         @keyframes pulso-musica {
+
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 61, 98, 0.7); }
+
             70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(139, 61, 98, 0); }
+
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 61, 98, 0); }
+
         }
+
+
 
         /* --- CAPA 1: FONDO DECORATIVO (Garigoleado) --- */
+
         .capa-garigoleado {
+
             position: absolute;
+
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; 
+
+            z-index: 1;
+
             pointer-events: none;
+
         }
+
         .img-garigoleado {
+
             width: 100%; height: 100%; object-fit: cover; opacity: 0.8;
+
             display: block; border: none;
+
             animation: fadeInSimple 2s ease-out;
+
         }
+
+
 
         /* --- CAPA 2: ESTRUCTURA CENTRAL --- */
+
         .capa-central {
+
             position: relative;
-            z-index: 5; 
+
+            z-index: 5;
+
             display: flex;
-            flex-direction: column; 
+
+            flex-direction: column;
+
             align-items: center;    
+
             width: 100%;
-            padding-top: 40px; 
+
+            padding-top: 40px;
+
             padding-bottom: 40px;
+
         }
+
+
 
         /* --- SECCIONES INDIVIDUALES --- */
+
         .seccion {
-            position: relative; 
-            width: 90%; 
-            margin-bottom: -1px; 
-            min-height: 200px; /* Altura mínima para asegurar visualización */
+
+            position: relative;
+
+            width: 90%;
+
+            margin-bottom: -1px;
+
         }
+
+
 
         .img-fondo {
+
             display: block;
+
             width: 100%;
+
             height: auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
         }
+
+
 
         /* CAJA DE TEXTO/CONTENIDO SOBRE LAS IMÁGENES */
+
         .texto-seccion {
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 100%;
+
             z-index: 10;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             text-align: center;
+
         }
+
+
 
         /* --- ELEMENTOS DECORATIVOS SECCIÓN 1 (PORTADA) --- */
-        
+
+       
+
         .icono-corona {
-            width: 30%;        
-            max-width: 80px; 
-            margin-top: 40px; 
+
+            width: 30%;      
+
+            max-width: 80px;
+
+            margin-top: 40px;
+
             display: block;
+
             transition: width 0.3s ease;
+
         }
+
+
 
         .titulo-mis-xv {
+
             font-family: 'Georgia', serif;
-            font-size: 1.5rem; 
-            color: #bfa378; 
-            margin-top: 5px; 
-            margin-bottom: 0; 
-            letter-spacing: 4px; 
+
+            font-size: 1.5rem;
+
+            color: #bfa378;
+
+            margin-top: 5px;
+
+            margin-bottom: 0;
+
+            letter-spacing: 4px;
+
             text-transform: uppercase;
-            font-weight: normal; 
+
+            font-weight: normal;
+
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         /* Nuevo estilo para el nombre principal en portada */
+
         .nombre-portada {
-            font-size: 2.5rem; 
-            color: #bfa378; 
+
+            font-size: 2.5rem;
+
+            color: #bfa378;
+
             margin: 10px 0;
+
             line-height: 1;
+
             text-align: center;
+
             text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+
             transition: font-size 0.3s ease;
-            white-space: nowrap; 
+
+            white-space: nowrap;
+
         }
+
+
 
         .icono-fecha {
-            width: 75%; 
-            max-width: 280px; 
+
+            width: 75%;
+
+            max-width: 280px;
+
             display: block;
+
             position: absolute;
-            bottom: 4%; 
+
+            bottom: 4%;
+
             transition: width 0.3s ease;
+
         }
+
+
 
         /* --- ESTILOS DE LA CUENTA REGRESIVA SECCIÓN 2 --- */
+
         .contenedor-contador {
+
             display: flex;
-            justify-content: space-evenly; 
+
+            justify-content: space-evenly;
+
             align-items: center;
+
             width: 100%;
-            height: 100%; 
+
+            height: 100%;
+
             padding: 0 10px;
-            color: #8b3d62; 
+
+            color: #8b3d62;
+
             font-family: 'Georgia', serif;
+
         }
+
+
 
         .bloque-tiempo {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
         }
+
+
 
         .numero-tiempo {
-            font-size: 2.2rem; 
+
+            font-size: 2.2rem;
+
             font-weight: bold;
+
             line-height: 1;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .etiqueta-tiempo {
+
             font-size: 0.8rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
+
             margin-top: 5px;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         /* --- ESTILOS PARA EL FONDO 4 (TEXTO E IMÁGENES) SECCIÓN 3 --- */
+
         .contenedor-texto-fondo4 {
+
             width: 85%;
-            margin-top: 5%; 
+
+            margin-top: 5%;
+
             text-align: center;
+
             color: #555;
+
         }
+
+
 
         .titulo-te-esperamos {
+
             font-family: 'Great Vibes', cursive;
+
             font-size: 2.5rem;
-            color: #8b3d62; 
-            margin-bottom: 25px; 
+
+            color: #8b3d62;
+
+            margin-bottom: 25px;
+
             line-height: 1;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .texto-invitacion-cuerpo {
+
             font-family: 'Georgia', serif;
-            font-size: 0.75rem; 
-            line-height: 1.4; 
-            margin-bottom: 25px; 
+
+            font-size: 0.75rem;
+
+            line-height: 1.4;
+
+            margin-bottom: 25px;
+
             color: #333;
+
             padding: 0 10px;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .nombre-isabela {
-            font-family: 'Georgia', serif;
+
+            font-family: 'Great Vibes', cursive;
+
             font-size: 1.0rem; /* MODIFICADO: Reducido de 1.4rem a 1.0rem */
-            color: #bfa378; 
+
+            color: #bfa378;
+
             margin-bottom: 5px;
+
             line-height: 1;
-            white-space: nowrap; 
+
+            white-space: nowrap;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .contenedor-imagenes-fondo4 {
+
             display: flex;
+
             flex-direction: row;
+
             justify-content: center;
+
             align-items: center;
-            gap: 3px; 
-            width: 100%; 
-            margin-top: -3%; 
+
+            gap: 3px;
+
+            width: 100%;
+
+            margin-top: -3%;
+
         }
+
+
 
         .img-persona {
-            width: 48%; 
-            max-width: 440px; 
+
+            width: 48%;
+
+            max-width: 440px;
+
             height: auto;
+
             object-fit: contain;
+
             transition: width 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer; 
+
+            cursor: pointer;
+
         }
+
+
 
         .img-persona.zoomed {
+
             transform: scale(1.6) !important;
-            z-index: 100; 
-            position: relative; 
+
+            z-index: 100;
+
+            position: relative;
+
         }
+
+
 
         .img-papas {
+
             position: relative;
-            left: 5%; 
+
+            left: 5%;
+
         }
+
+
 
         .img-padrinos {
+
             position: relative;
-            right: 4%; 
+
+            right: 4%;
+
         }
+
+
 
         /* --- ESTILOS PARA EL FONDO 5 (CÓDIGO DE VESTIMENTA) SECCIÓN 4 --- */
+
         .contenedor-vestimenta {
+
             width: 90%;
+
             text-align: center;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
-            justify-content: flex-start; 
+
+            justify-content: flex-start;
+
             height: 100%;
-            padding-top: 5%; 
+
+            padding-top: 5%;
+
         }
+
+
 
         .titulo-vestimenta {
+
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem; 
-            color: #bfa378; 
+
+            font-size: 2rem;
+
+            color: #bfa378;
+
             margin-bottom: 10px;
+
             line-height: 1.2;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .texto-formal {
+
             font-family: 'Georgia', serif;
-            font-size: 1.2rem; 
+
+            font-size: 1.2rem;
+
             text-transform: uppercase;
+
             letter-spacing: 2px;
+
             color: #333;
+
             margin-bottom: 5px;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .texto-omitir {
+
             font-family: 'Georgia', serif;
+
             font-size: 0.9rem;
+
             text-transform: uppercase;
+
             color: #555;
+
             margin-bottom: 20px;
+
             transition: font-size 0.3s ease;
+
         }
+
+
 
         .contenedor-iconos-vestimenta {
+
             display: flex;
+
             flex-direction: row;
+
             justify-content: center;
+
             align-items: center;
-            gap: 40px; 
+
+            gap: 40px;
+
         }
+
+
 
         .img-ropa {
-            width: 80px; 
+
+            width: 80px;
+
             height: auto;
+
             display: block;
+
             transition: width 0.3s ease;
+
         }
+
+
 
         /* --- ESTILOS PARA EL FONDO 6 (IGLESIA/RECEPCIÓN) SECCIÓN 5 --- */
+
         .contenedor-ubicaciones {
+
             width: 100%;
+
             height: 100%;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
             align-items: center;
-            gap: 20px; 
+
+            gap: 20px;
+
         }
+
+
 
         .fila-ubicacion {
+
             display: flex;
-            width: 95%; 
+
+            width: 95%;
+
             align-items: center;
+
         }
+
+
 
         .col-icono {
+
             width: 40%;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
-            padding-left: 25px; 
+
+            padding-left: 25px;
+
         }
+
+
 
         .col-info {
+
             width: 60%;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
-            align-items: center; 
-            text-align: center; 
-            padding-right: 30px; 
+
+            align-items: center;
+
+            text-align: center;
+
+            padding-right: 30px;
+
         }
+
+
 
         .img-icono-vertical {
-            width: 90%; 
-            max-width: 130px; 
+
+            width: 90%;
+
+            max-width: 130px;
+
             height: auto;
+
             object-fit: contain;
+
         }
+
+
 
         .titulo-lugar {
+
             font-family: 'Great Vibes', cursive;
+
             font-size: 1.6rem;
-            color: #bfa378; 
+
+            color: #bfa378;
+
             margin-bottom: 2px;
+
             line-height: 1.1;
+
         }
+
+
 
         .texto-hora {
+
             font-family: 'Georgia', serif;
+
             font-size: 1.1rem;
+
             color: #333;
+
             margin-bottom: 8px;
+
         }
+
+
 
         .boton-maps {
+
             display: inline-block;
-            background-color: #bfa378; 
+
+            background-color: #bfa378;
+
             color: #fff;
+
             text-decoration: none;
+
             padding: 6px 15px;
+
             border-radius: 50px;
+
             font-family: 'Georgia', serif;
+
             font-size: 0.75rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
+
             transition: transform 0.2s ease, background-color 0.3s ease;
+
         }
+
+
 
         .boton-maps:hover {
+
             transform: scale(1.05);
+
             background-color: #a88b5d;
+
         }
+
+
 
         /* --- ESTILOS PARA EL FONDO 7 (LLUVIA DE SOBRES) SECCIÓN 6 --- */
+
         .contenedor-lluvia-texto {
-            z-index: 20; 
-            background: none; 
+
+            z-index: 20;
+
+            background: none;
+
             padding: 20px;
+
             border-radius: 0;
+
             width: 85%;
+
             text-align: center;
-            box-shadow: none; 
-            backdrop-filter: none; 
+
+            box-shadow: none;
+
+            backdrop-filter: none;
+
         }
+
+
 
         .titulo-lluvia {
-            display: none; 
+
+            display: none;
+
         }
+
+
 
         .texto-lluvia {
+
             font-family: 'Georgia', serif;
-            font-size: 1rem; 
-            color: #333; 
+
+            font-size: 1rem;
+
+            color: #333;
+
             line-height: 1.5;
+
             font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8); 
+
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+
         }
+
+
 
         .sobre-animado {
+
             position: absolute;
+
             top: -50px;
-            width: 24px; 
+
+            width: 24px;
+
             height: 24px;
-            z-index: 15; 
+
+            z-index: 15;
+
             opacity: 0.8;
+
             animation: caer linear infinite;
-            pointer-events: none; 
+
+            pointer-events: none;
+
         }
+
+
 
         @keyframes caer {
+
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+
             10% { opacity: 1; }
-            100% { transform: translateY(450px) rotate(360deg); opacity: 0; } 
+
+            100% { transform: translateY(450px) rotate(360deg); opacity: 0; }
+
         }
+
+
 
         /* --- ESTILOS PARA EL FONDO 8 (ITINERARIO) SECCIÓN 7 --- */
+
         /* AQUÍ ESTÁN LOS AJUSTES DE COMPACTACIÓN */
+
         .contenedor-itinerario {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: center;
+
             height: 100%;
+
             width: 90%;
+
             gap: 5px; /* Reducido de 10px a 5px */
+
             padding-top: 10px; /* Un poco de padding arriba */
+
         }
+
+
 
         .titulo-itinerario {
+
             font-family: 'Great Vibes', cursive;
+
             font-size: 1.8rem; /* Reducido de 2rem a 1.8rem */
+
             color: #bfa378;
-            margin-bottom: 0; 
+
+            margin-bottom: 0;
+
             line-height: 1;
+
         }
+
+
 
         .lista-itinerario {
+
             display: flex;
+
             flex-direction: column;
+
             width: 100%;
+
             gap: 4px; /* Reducido de 10px a 4px */
+
             align-items: center;
+
         }
+
+
 
         /* GRID PARA ITINERARIO */
+
         .item-itinerario {
+
             display: grid;
-            grid-template-columns: 1fr auto 1fr; 
+
+            grid-template-columns: 1fr auto 1fr;
+
             align-items: center;
-            gap: 5px; 
+
+            gap: 5px;
+
             width: 100%;
+
             margin-top: 2px; /* Reducido de 5px a 2px */
+
         }
+
+
 
         .icono-itinerario {
-            grid-column: 2; 
+
+            grid-column: 2;
+
             width: 40px; /* Reducido de 50px a 40px para ahorrar espacio */
+
             height: 40px;
+
             object-fit: contain;
+
             justify-self: center;
+
         }
+
+
 
         .info-itinerario {
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
         }
-        
+
+       
+
         .info-izquierda {
+
             grid-column: 1;
-            align-items: flex-end; 
+
+            align-items: flex-end;
+
             text-align: right;
+
         }
+
+
 
         .info-derecha {
+
             grid-column: 3;
-            align-items: flex-start; 
+
+            align-items: flex-start;
+
             text-align: left;
+
         }
+
+
 
         .titulo-evento {
+
             font-family: 'Great Vibes', cursive;
+
             font-size: 1.2rem; /* Reducido de 1.4rem a 1.2rem */
+
             color: #bfa378;
+
             margin: 0;
+
             line-height: 1;
+
         }
+
+
 
         .hora-evento {
+
             font-family: 'Georgia', serif;
+
             font-size: 0.75rem; /* Reducido de 0.9rem a 0.75rem */
+
             color: #333;
+
             margin: 0;
+
         }
+
+
 
         /* --- ESTILOS PARA FONDO 9 (CONFIRMACIÓN) SECCIÓN 8 --- */
+
         .contenedor-confirmacion {
+
             width: 80%;
+
             text-align: center;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
-            gap: 8px; 
+
+            gap: 8px;
+
             color: #333;
+
         }
+
+
 
         .titulo-confirmacion {
+
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem; 
+
+            font-size: 1.8rem;
+
             color: #bfa378;
+
             margin-bottom: 2px;
+
         }
+
+
 
         .texto-confirmacion {
+
             font-family: 'Georgia', serif;
-            font-size: 0.75rem; 
+
+            font-size: 0.75rem;
+
             line-height: 1.3;
-            margin-bottom: 10px; 
+
+            margin-bottom: 10px;
+
             color: #555;
+
         }
+
+
 
         .boton-whatsapp {
+
             display: inline-block;
-            background-color: #8b3d62; 
+
+            background-color: #8b3d62;
+
             color: #fff;
+
             text-decoration: none;
-            padding: 8px 18px; 
+
+            padding: 8px 18px;
+
             border-radius: 50px;
+
             font-family: 'Georgia', serif;
-            font-size: 0.85rem; 
+
+            font-size: 0.85rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
+
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+
             transition: transform 0.2s ease, background-color 0.3s ease;
+
             cursor: pointer;
-            border: 1px solid #bfa378; 
+
+            border: 1px solid #bfa378;
+
         }
+
+
 
         .boton-whatsapp:hover {
+
             transform: scale(1.05);
-            background-color: #722f4d; 
+
+            background-color: #722f4d;
+
         }
+
+
 
         .titulo-despedida {
-            font-size: 1.3rem; 
+
+            font-size: 1.3rem;
+
             color: #bfa378;
+
             transition: font-size 0.3s ease;
-            white-space: nowrap; 
+
+            white-space: nowrap;
+
         }
+
+
 
         /* --- ANIMACIONES CSS --- */
+
         .elemento-animable {
+
             opacity: 0;
+
             transition: opacity 1s ease-out, transform 1s ease-out;
+
         }
+
+
 
         .entrada-arriba {
+
             transform: translateY(30px);
+
         }
+
+
 
         .entrada-zoom {
+
             transform: scale(0.8);
+
         }
+
+
 
         .elemento-visible {
+
             opacity: 1 !important;
+
             transform: translateY(0) scale(1) !important;
+
         }
+
+
 
         @keyframes fadeInSimple {
+
             from { opacity: 0; }
+
             to { opacity: 0.8; }
+
         }
+
+
 
         @keyframes flotar {
+
             0% { transform: translateY(0); }
+
             50% { transform: translateY(-5px); }
+
             100% { transform: translateY(0); }
+
         }
+
+
 
         .animacion-flotar {
+
             animation: flotar 3s ease-in-out infinite;
+
         }
+
+
 
         /* --- RESPONSIVE: Ajustes para celular (max-width: 480px) --- */
+
         @media (max-width: 480px) {
-            
+
+           
+
             .titulo-mis-xv { font-size: 1.2rem; }
+
             .nombre-portada { font-size: 1.5rem; }
+
             .numero-tiempo { font-size: 1.8rem; }
+
             .etiqueta-tiempo { font-size: 0.65rem; }
+
             .titulo-te-esperamos { font-size: 2rem; }
+
             .texto-invitacion-cuerpo { font-size: 0.6rem; }
+
             .nombre-isabela { font-size: 0.8rem; } /* MODIFICADO: Reducido de 1.1rem a 0.8rem */
+
             .titulo-vestimenta { font-size: 1.6rem; }
+
             .texto-formal { font-size: 1rem; }
+
             .texto-omitir { font-size: 0.75rem; }
 
+
+
             /* Ubicaciones */
+
             .contenedor-ubicaciones { gap: 15px; }
+
             .img-icono-vertical { max-width: 80px; }
+
             .titulo-lugar { font-size: 1.2rem; }
+
             .texto-hora { font-size: 0.9rem; }
+
             .col-info { padding-right: 5px; }
 
+
+
             /* Lluvia */
+
             .texto-lluvia { font-size: 0.8rem; line-height: 1.3; padding: 10px; }
 
+
+
             /* Itinerario Compacto para Celular */
+
             .titulo-itinerario { font-size: 1.5rem; margin-bottom: 2px; }
+
             .lista-itinerario { gap: 2px; } /* Mínimo espacio entre items */
+
             .item-itinerario { margin-top: 1px; }
+
             .icono-itinerario { width: 30px; height: 30px; } /* Iconos pequeños en mobile */
+
             .titulo-evento { font-size: 1rem; } /* Texto más pequeño */
+
             .hora-evento { font-size: 0.6rem; } /* Hora más pequeña */
 
+
+
             /* Confirmación */
+
             .titulo-confirmacion { font-size: 1.5rem; }
+
             .texto-confirmacion { font-size: 0.65rem; }
+
             .boton-whatsapp { padding: 6px 14px; font-size: 0.75rem; }
 
+
+
             /* Despedida */
+
             .titulo-despedida { font-size: 0.8rem; }
 
+
+
             /* Imágenes */
+
             .icono-corona { width: 24%; }
+
             .icono-fecha { width: 60%; }
+
             .img-persona { width: 38%; }
+
             .img-ropa { width: 64px; }
+
             .contenedor-iconos-vestimenta { gap: 30px; }
+
         }
+
+
 
     </style>
+
 </head>
+
 <body>
 
+
+
     <div class="invitacion-container">
-        
+
+       
+
         <!-- Botón de Música -->
+
         <div class="contenedor-boton-musica">
+
             <button id="btn-musica" class="boton-musica">
-                🔇 
+
+                🔇
+
             </button>
+
         </div>
-        
+
+       
+
         <audio id="audio-player" loop>
+
             <source src="musica/cancion1.mp3" type="audio/mpeg">
+
         </audio>
 
+
+
         <div class="capa-garigoleado">
+
             <img src="png/fondo_1.png" onerror="this.style.display='none'" alt="" class="img-garigoleado">
+
         </div>
+
+
 
         <div class="capa-central">
-            
+
+           
+
             <!-- SECCIÓN 1 -->
+
             <div class="seccion" id="seccion-1">
+
                 <img src="fondos/fondo2.png" onerror="this.src='https://placehold.co/400x600/EEE/CCC?text=Fondo+2'" alt="fondo2" class="img-fondo">
+
                 <div class="texto-seccion">
+
                     <img src="png/corona.png" onerror="this.src='https://placehold.co/80x60?text=Corona'" alt="Corona" class="icono-corona">
+
                     <h2 class="titulo-mis-xv">Mis XV</h2>
+
                     <h1 class="texto-cursiva nombre-portada">Isabella Rojas García</h1>
+
                     <img src="png/fecha.png" onerror="this.src='https://placehold.co/200x50?text=FECHA'" alt="Fecha" class="icono-fecha">
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 2 -->
+
             <div class="seccion" id="seccion-2">
+
                 <img src="fondos/fondo3.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+3'" alt="fondo3" class="img-fondo">
+
                 <div class="texto-seccion">
+
                     <div class="contenedor-contador" id="contador">
+
                         <div class="bloque-tiempo">
+
                             <span class="numero-tiempo" id="dias">00</span>
+
                             <span class="etiqueta-tiempo">Días</span>
+
                         </div>
+
                         <div class="bloque-tiempo">
+
                             <span class="numero-tiempo" id="horas">00</span>
+
                             <span class="etiqueta-tiempo">Hrs</span>
+
                         </div>
+
                         <div class="bloque-tiempo">
+
                             <span class="numero-tiempo" id="minutos">00</span>
+
                             <span class="etiqueta-tiempo">Min</span>
+
                         </div>
+
                         <div class="bloque-tiempo">
+
                             <span class="numero-tiempo" id="segundos">00</span>
+
                             <span class="etiqueta-tiempo">Seg</span>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 3 -->
+
             <div class="seccion" id="seccion-3">
+
                 <img src="fondos/fondo4.png" onerror="this.src='https://placehold.co/400x500/EEE/CCC?text=Fondo+4'" alt="fondo4" class="img-fondo">
-                <div class="texto-seccion" style="flex-direction: column; justify-content: flex-start;"> 
+
+                <div class="texto-seccion" style="flex-direction: column; justify-content: flex-start;">
+
                     <div class="contenedor-texto-fondo4">
+
                         <h2 class="titulo-te-esperamos">Te esperamos</h2>
+
                         <p class="texto-invitacion-cuerpo">
-                            Con la bendición de Dios  y el amor de mis padres y mis hermanos, me complace invitarte a celebrar mis XV años.<br> 
+
+                            Con la bendición de Dios  y el amor de mis padres y mis hermanos, me complace invitarte a celebrar mis XV años.<br>
+
                             Será un honor contar con su presencia en este día tan especial en el que inicio una nueva etapa de mi vida.
+
                         </p>
-                        <h2 class="nombre-isabela">Isabella Rojas Garcìa</h2>
+
+                        <h2 class="nombre-isabela">Isabella Rojas
+
+                            Garcìa</h2>
+
                     </div>
+
                     <div class="contenedor-imagenes-fondo4">
+
                         <img src="png/papas.png" onerror="this.src='https://placehold.co/200x200/bfa378/ffffff?text=Papás'" alt="Papás" class="img-persona img-papas">
+
                         <img src="png/padrinos.png" onerror="this.src='https://placehold.co/200x200/8b3d62/ffffff?text=Padrinos'" alt="Padrinos" class="img-persona img-padrinos">
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 4 -->
+
             <div class="seccion" id="seccion-4">
+
                 <img src="fondos/fondo5.png" onerror="this.src='https://placehold.co/400x400/EEE/CCC?text=Fondo+5'" alt="fondo5" class="img-fondo">
+
                 <div class="texto-seccion" style="justify-content: center;">
+
                     <div class="contenedor-vestimenta">
+
                         <h2 class="titulo-vestimenta">Código de Vestimenta</h2>
+
                         <h3 class="texto-formal">FORMAL</h3>
+
                         <p class="texto-omitir">OMITIR COLOR ROSA Y DORADO</p>
+
                         <div class="contenedor-iconos-vestimenta">
+
                             <img src="png/vestido.png" onerror="this.src='https://placehold.co/80x120/pink/fff?text=vestido'" alt="Vestido" class="img-ropa">
+
                             <img src="png/traje.png" onerror="this.src='https://placehold.co/80x120/333/fff?text=traje'" alt="Traje" class="img-ropa">
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 5 -->
+
             <div class="seccion" id="seccion-5">
+
                 <img src="fondos/fondo6.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+6'" alt="fondo6" class="img-fondo">
+
                 <div class="texto-seccion">
+
                     <div class="contenedor-ubicaciones">
+
                         <div class="fila-ubicacion">
+
                             <div class="col-icono">
+
                                 <img src="png/iglesia.png" onerror="this.src='https://placehold.co/100x100/bfa378/fff?text=Iglesia'" alt="Iglesia" class="img-icono-vertical">
+
                             </div>
+
                             <div class="col-info">
+
                                 <h3 class="titulo-lugar">Templo Santa Cruz <br> del Valle</h3>
+
                                 <p class="texto-hora">3:45 pm</p>
+
                                 <a href="https://maps.app.goo.gl/DXLJV2EQQa9YN9nZ7?g_st=ipc" target="_blank" class="boton-maps">Ver Ubicación</a>
+
                             </div>
+
                         </div>
+
                         <div class="fila-ubicacion">
+
                             <div class="col-icono">
+
                                 <img src="png/recepcion.png" onerror="this.src='https://placehold.co/100x100/8b3d62/fff?text=Recepcion'" alt="Recepción" class="img-icono-vertical">
+
                             </div>
+
                             <div class="col-info">
+
                                 <h3 class="titulo-lugar">Hacienda Alejandra</h3>
+
                                 <p class="texto-hora">6:00 pm</p>
+
                                 <a href="https://maps.app.goo.gl/aEETBCy9YKSWy1996?g_st=aw" target="_blank" class="boton-maps">Ver Ubicación</a>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 6 -->
+
             <div class="seccion" id="seccion-6">
+
                 <img src="fondos/fondo7.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+7'" alt="fondo7" class="img-fondo">
+
                 <div class="texto-seccion" style="justify-content: center; overflow: hidden;">
+
                     <div class="contenedor-lluvia-texto">
+
                         <p class="texto-lluvia">
+
                             El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo, te agradezco tu muestra de cariño en el cofre que encontrarás en la recepción.
+
                         </p>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 7 -->
+
             <div class="seccion" id="seccion-7">
+
                 <img src="fondos/fondo8.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+8'" alt="fondo8" class="img-fondo">
+
                 <div class="texto-seccion" style="justify-content: center;">
+
                     <div class="contenedor-itinerario">
+
                         <h2 class="titulo-itinerario">Itinerario</h2>
+
                         <div class="lista-itinerario">
+
                             <!-- Iglesia -->
+
                             <div class="item-itinerario">
+
                                 <div class="info-itinerario info-izquierda">
+
                                     <h3 class="titulo-evento">Misa</h3>
+
                                     <p class="hora-evento">3:45 pm</p>
+
                                 </div>
+
                                 <img src="png/iglesia.png" onerror="this.src='https://placehold.co/40x40/bfa378/fff?text=IG'" alt="Iglesia" class="icono-itinerario">
+
                                 <div></div>
+
                             </div>
+
                             <!-- Recepción -->
+
                             <div class="item-itinerario">
+
                                 <div></div>
+
                                 <img src="png/recepcion.png" onerror="this.src='https://placehold.co/40x40/8b3d62/fff?text=RX'" alt="Recepción" class="icono-itinerario">
+
                                 <div class="info-itinerario info-derecha">
+
                                     <h3 class="titulo-evento">Recepción</h3>
+
                                     <p class="hora-evento">6:00 pm</p>
+
                                 </div>
+
                             </div>
+
                             <!-- Cena -->
+
                             <div class="item-itinerario">
+
                                 <div class="info-itinerario info-izquierda">
+
                                     <h3 class="titulo-evento">Cena</h3>
+
                                     <p class="hora-evento">7:00 pm</p>
+
                                 </div>
+
                                 <img src="png/comida.png" onerror="this.src='https://placehold.co/40x40/bfa378/fff?text=CD'" alt="Comida" class="icono-itinerario">
+
                                 <div></div>
+
                             </div>
+
                             <!-- Vals -->
+
                             <div class="item-itinerario">
+
                                 <div></div>
+
                                 <img src="png/vals.png" onerror="this.src='https://placehold.co/40x40/8b3d62/fff?text=VL'" alt="Vals" class="icono-itinerario">
+
                                 <div class="info-itinerario info-derecha">
+
                                     <h3 class="titulo-evento">Vals</h3>
+
                                     <p class="hora-evento">8:00 pm</p>
+
                                 </div>
+
                             </div>
+
                             <!-- Baile -->
+
                             <div class="item-itinerario">
+
                                 <div class="info-itinerario info-izquierda">
+
                                     <h3 class="titulo-evento">Baile</h3>
+
                                     <p class="hora-evento">9:00 pm</p>
+
                                 </div>
+
                                 <img src="png/baile.png" onerror="this.src='https://placehold.co/40x40/bfa378/fff?text=BL'" alt="Baile" class="icono-itinerario">
+
                                 <div></div>
+
                             </div>
+
                             <!-- Final -->
+
                             <div class="item-itinerario">
+
                                 <div></div>
+
                                 <img src="png/final.png" onerror="this.src='https://placehold.co/40x40/8b3d62/fff?text=FN'" alt="Final" class="icono-itinerario">
+
                                 <div class="info-itinerario info-derecha">
+
                                     <h3 class="titulo-evento">Final</h3>
+
                                     <p class="hora-evento">12:00 pm</p>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 8 -->
+
             <div class="seccion" id="seccion-8">
+
                 <img src="fondos/fondo9.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+9'" alt="fondo9" class="img-fondo">
+
                 <div class="texto-seccion" style="justify-content: center;">
+
                     <div class="contenedor-confirmacion">
+
                         <p class="texto-confirmacion">
+
                             Agradecemos confirmar tu asistencia.<br>
+
                             Esperamos contar con tu presencia.
+
                         </p>
+
                         <a href="https://wa.me/525522151001?text=%C2%A1Hola!%20Muchas%20gracias%20por%20la%20invitaci%C3%B3n.%20Confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Isabela." class="boton-whatsapp" target="_blank">
+
                             Confirmar Asistencia
+
                         </a>
+
                     </div>
+
                 </div>
+
             </div>
+
+
 
             <!-- SECCIÓN 9 -->
+
             <div class="seccion" id="seccion-9">
+
                 <img src="fondos/fondo10.png" onerror="this.src='https://placehold.co/400x300/EEE/CCC?text=Fondo+10'" alt="fondo10" class="img-fondo">
+
                 <div class="texto-seccion" style="justify-content: center;">
+
                     <h2 class="texto-cursiva titulo-despedida">TE ESPERAMOS</h2>
+
                 </div>
+
             </div>
 
+
+
         </div>
+
     </div>
 
+
+
     <!-- SCRIPTS -->
+
     <script>
+
         // Cuenta Regresiva
+
         const fechaEvento = new Date("March 28, 2026 15:45:00").getTime();
+
         const intervalo = setInterval(function() {
+
             const ahora = new Date().getTime();
+
             const distancia = fechaEvento - ahora;
+
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
             const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
+
+
             if (distancia > 0) {
+
                 document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+
                 document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+
                 document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+
                 document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+
             } else {
+
                 clearInterval(intervalo);
+
                 document.getElementById("dias").innerText = "00";
+
                 document.getElementById("horas").innerText = "00";
+
                 document.getElementById("minutos").innerText = "00";
+
                 document.getElementById("segundos").innerText = "00";
+
             }
+
         }, 1000);
 
+
+
         // Lluvia de Sobres
+
         function crearSobre() {
+
             const seccionLluvia = document.getElementById('seccion-6');
+
             if (!seccionLluvia) return;
+
             const contenedorTexto = seccionLluvia.querySelector('.texto-seccion');
+
             if(contenedorTexto) {
+
                 const sobre = document.createElement('div');
+
                 sobre.classList.add('sobre-animado');
+
                 sobre.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#8b3d62"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 97.4c13 7.3 29.1 7.3 42.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 296.5c-18.4 10.4-40.8 16-63.5 16h-4.9c-22.7 0-45.1-5.6-63.5-16L48 212.2z"/></svg>';
+
                 sobre.style.left = Math.random() * 90 + '%';
+
                 sobre.style.animationDuration = Math.random() * 3 + 2 + 's';
+
                 contenedorTexto.appendChild(sobre);
-                setTimeout(() => { sobre.remove(); }, 5000); 
+
+                setTimeout(() => { sobre.remove(); }, 5000);
+
             }
+
         }
+
         setInterval(crearSobre, 800);
 
+
+
         // Animaciones Scroll
+
         document.addEventListener('DOMContentLoaded', () => {
+
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+
             const observer = new IntersectionObserver((entries, observer) => {
+
                 entries.forEach(entry => {
+
                     if (entry.isIntersecting) {
+
                         entry.target.classList.add('elemento-visible');
-                        observer.unobserve(entry.target); 
+
+                        observer.unobserve(entry.target);
+
                     }
+
                 });
+
             }, observerOptions);
 
+
+
             const imagenesContenido = document.querySelectorAll('.icono-corona, .icono-fecha, .img-persona, .img-ropa, .img-icono-vertical, .icono-itinerario');
+
             imagenesContenido.forEach(img => {
+
                 img.classList.add('elemento-animable', 'entrada-arriba');
+
                 observer.observe(img);
+
             });
+
+
 
             const imagenesFondo = document.querySelectorAll('.img-fondo');
+
             imagenesFondo.forEach(img => {
+
                 img.classList.add('elemento-animable');
+
                 observer.observe(img);
+
             });
-            
+
+           
+
             const corona = document.querySelector('.icono-corona');
+
             if(corona) {
+
                 corona.addEventListener('transitionend', () => {
+
                     corona.classList.add('animacion-flotar');
+
                 });
+
             }
+
         });
+
+
 
         // Zoom Imagenes
+
         const imagenesPersonas = document.querySelectorAll('.img-persona');
+
         imagenesPersonas.forEach(img => {
+
             img.addEventListener('click', function() {
+
                 this.classList.add('zoomed');
+
                 setTimeout(() => { this.classList.remove('zoomed'); }, 6000);
+
             });
+
         });
+
+
 
         // Música
+
         const btnMusica = document.getElementById('btn-musica');
+
         const audioPlayer = document.getElementById('audio-player');
+
         let isPlaying = false;
 
-        btnMusica.addEventListener('click', () => {
-            if (!isPlaying) {
-                audioPlayer.play().then(() => {
-                    isPlaying = true;
-                    btnMusica.innerHTML = '🎵';
-                    btnMusica.classList.add('reproduciendo');
-                }).catch(error => { console.log("Error al reproducir:", error); });
-            } else {
-                audioPlayer.pause();
-                isPlaying = false;
-                btnMusica.innerHTML = '🔇';
-                btnMusica.classList.remove('reproduciendo');
-            }
-        });
-    </script>
-</body>
-</html>
 
+
+        btnMusica.addEventListener('click', () => {
+
+            if (!isPlaying) {
+
+                audioPlayer.play().then(() => {
+
+                    isPlaying = true;
+
+                    btnMusica.innerHTML = '🎵';
+
+                    btnMusica.classList.add('reproduciendo');
+
+                }).catch(error => { console.log("Error al reproducir:", error); });
+
+            } else {
+
+                audioPlayer.pause();
+
+                isPlaying = false;
+
+                btnMusica.innerHTML = '🔇';
+
+                btnMusica.classList.remove('reproduciendo');
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html> 
